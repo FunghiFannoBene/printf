@@ -34,25 +34,65 @@ int ft_printf(const char *, ...);
 //VUOTO ERRORE.
 // METTENDO LA VARIABILE SOLITARIA , STAMPA SOLO SE E' DI TIPO STRINGA. RITORNA ERRORE SE E' ALTRO.
 
+//specifier	Output	Example
+	d or i	Signed decimal integer	392
+	u	Unsigned decimal integer	7235
+	o	Unsigned octal	610
+	x	Unsigned hexadecimal integer	7fa
+	X	Unsigned hexadecimal integer (uppercase)	7FA
+	f	Decimal floating point, lowercase	392.65
+	F	Decimal floating point, uppercase	392.65
+	e	Scientific notation (mantissa/exponent), lowercase	3.9265e+2
+	E	Scientific notation (mantissa/exponent), uppercase	3.9265E+2
+	g	Use the shortest representation: %e or %f	392.65
+	G	Use the shortest representation: %E or %F	392.65
+	a	Hexadecimal floating point, lowercase	-0xc.90fep-2
+	A	Hexadecimal floating point, uppercase	-0XC.90FEP-2
+	c	Character	a
+	s	String of characters	sample
+	p	Pointer address	b8000000
+	n	Nothing printed.
+	The corresponding argument must be a pointer to a signed int.
+	The number of characters written so far is stored in the pointed location.	
+	%	A % followed by another % character will write a single % to the stream.	%
+
+GESTIONE DEL  WIDTH (*) AGGIUNGE UN PARAMETRO ALLA FUNZIONE GESTITE COME LE VARIABILI
+// in caso il valore da stampare sia un int (o simile), ricordarsi di porre il limte max di int cioe':1658683391
+//	PER I NUMERI POSITIVI e di: -1658683391 per I NUMER INEGATIVI CON SPECIFIER "i" o "d"; in caso invece di 
+// specifier "u" il limite e' di 1658683391 per i positivi e 2636283905 per i negativi, il LIMITE PER I NEGATIVI
+// NON HA SEGNO POICHE' "u" definisce gli 'unsigned int' traducibili come VALORI ASSOLUTI.
+// il width accetta solo  un int o una variabile di tipo int che non hanno valore massimo, se il valore e' negativo,
+//i caratteri mancanti vengon aggiunti dopo il valore richiamto dallo specifier.
+
+
 
 type
 //%c stampa l'ultima lettera.
 
 
 BONUS
+funzioni utili:
+	-itoa
 
 //
 
 GESTIONE DEL PUNTO
 
 GESTIONE DELLO 0
-
+Left-pads the number with zeroes (0) instead of spaces when padding is specified (see width sub-specifier).
+	
 GESTIONE DEL -
+gestisce la distribuzione dei caratteri alll'interno del parametro width, parametro gestito all'interno della funzione 
 
 GESTIONE DELLO SPAZIO
+If no sign is going to be written, a blank space is inserted before the value.
 
 GESTIONE DEL +
+//+
+//Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. By default, 
+//only negative numbers are preceded with a -ve sign.
 
-GESTIONE DEL #
+😎️GESTIONE DEL #
+//usata con o, x, X
 
 #endif
