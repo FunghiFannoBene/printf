@@ -77,6 +77,11 @@ funzioni utili:
 //
 
 GESTIONE DEL PUNTO
+//con il punto si definisce per gli specifier:d, i, o, u, x, X il numero minimo di numeri da stampare
+//se il valore da stampare e' inferiore al numero minimo, vengono aggiunti degli zero prima
+//per gli specifier: A, e, E, f, F il numero definisce il numero di decimali da stampare dopo la virgola
+// per gli specifier: g, G si stabilisce il numero massimo si cifre da stampare del numero
+// per lo specifier s: stabilisce il numero massimo di carattreri da stampare.
 
 GESTIONE DELLO 0
 Left-pads the number with zeroes (0) instead of spaces when padding is specified (see width sub-specifier).
@@ -85,7 +90,7 @@ GESTIONE DEL -
 gestisce la distribuzione dei caratteri alll'interno del parametro width, parametro gestito all'interno della funzione 
 
 GESTIONE DELLO SPAZIO
-If no sign is going to be written, a blank space is inserted before the value.
+//se non viene inserito un segno (tra la percentuale e lo specifier), viene aggiunto uno spazio
 
 GESTIONE DEL +
 //+
@@ -94,5 +99,16 @@ GESTIONE DEL +
 
 😎️GESTIONE DEL #
 //usata con o, x, X
+
+FUNZIONI VARIADICHE 
+// per implementare funzioni variadiche nel codice va inclusa la libreria stdarg.h
+//le funzioni variadiche sono funzioni che accettano un mumero infinito  di argomenti
+//va definita un va_list che va aperta con va_start e chiusa con va_end
+// va_start(va_list ap, parametro_n) serve a dare a va_list il parametro da cui partire, di per se
+//va start indica ad un parametro ap di puntare alla posizione di memoria successiva a quella del
+// proprio parametro_n
+// va_arg(va_list ap, tipo) restituisce il valore contenuto all-indirizzo di ap, castando il tipo che
+// passo come argomento
+
 
 #endif
