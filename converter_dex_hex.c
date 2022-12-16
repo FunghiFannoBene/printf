@@ -1,4 +1,8 @@
-
+# include <ctype.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <stddef.h>
 
 
 int        ft_strlen(char *s)
@@ -62,11 +66,21 @@ char    *converter_dex_hex(int a)
     int    temp;
     int i;
     char    *output;
-
+	char	*outputmeno;
+	int		neg;
+	neg = a;
+	outputmeno = malloc(800);
     i = 0;
-    output = (char *)malloc(sizeof(char)* (contatore(a) + 1));  
+	if (a<0)
+	{
+		a *= -1;
+		a -= 1;
+	}
+	
+    output = (char *)malloc(sizeof(char)* (contatore(a) + 1));
+
     while (a > 15)
-    {output[i] = '\0';
+    {outputmeno[i] = '\0';
         temp = a % 16; //salvo modulo in temporanea
         a /= 16; // divido a per 16 perche' al momento in cui sara'
         //<16 il mio ciclo while dovra' terminare
@@ -96,11 +110,53 @@ char    *converter_dex_hex(int a)
             i++;
         }
     }
-    output[i] = '\0';
-  return(ft_strrev(output));
+	output[i] = '\0';
+	output = ft_strrev(output);
+	if(neg < 0)
+	{
+	i=0;
+	while(output[i] != 0)
+	{
+		if (output[i] == '0')
+		outputmeno[i] = 'F';
+		else if (output[i] == '1') 
+		outputmeno[i] = 'E';
+		else if (output[i] == '2') 
+		outputmeno[i] = 'D';
+		else if (output[i] == '3') 
+		outputmeno[i] = 'C';
+		else if (output[i] == '4') 
+		outputmeno[i] = 'B';
+		else if (output[i] == '5') 
+		outputmeno[i] = 'A';
+		else if (output[i] == '6') 
+		outputmeno[i] = '9';
+		else if (output[i] == '7') 
+		outputmeno[i] = '8';
+		else if (output[i] == '8') 
+		outputmeno[i] = '7';
+		else if (output[i] == '9') 
+		outputmeno[i] = '6';
+		else if (output[i] == 'A') 
+		outputmeno[i] = '5';
+		else if (output[i] == 'B') 
+		outputmeno[i] = '4';
+		else if (output[i] == 'C') 
+		outputmeno[i] = '3';
+		else if (output[i] == 'D') 
+		outputmeno[i] = '2';
+		else if (output[i] == 'E') 
+		outputmeno[i] = '1';
+		else if (output[i] == 'F') 
+		outputmeno[i] = '0';
+		i++;
+	}
+	}
+	outputmeno[i] = '\0';
+  return(outputmeno);
 }
 int main() {
-  int a = 18;
+  int a = -9999999;
   printf("%s", converter_dex_hex(a));
   return 0;
 }
