@@ -87,7 +87,7 @@ GESTIONE DELLO 0
 Left-pads the number with zeroes (0) instead of spaces when padding is specified (see width sub-specifier).
 	
 GESTIONE DEL -
-gestisce la distribuzione dei caratteri alll'interno del parametro width, parametro gestito all'interno della funzione 
+gestisce la distribuzione dei caratteri all'interno del parametro width, parametro gestito all'interno della funzione
 
 GESTIONE DELLO SPAZIO
 //se non viene inserito un segno (tra la percentuale e lo specifier), viene aggiunto uno spazio
