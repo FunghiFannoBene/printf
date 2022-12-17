@@ -68,9 +68,11 @@ char    *converter_dex_hex(int a)
     char    *output;
 	char	*outputmeno;
 	int		neg;
+    int outputlen;
 	neg = a;
 	outputmeno = malloc(800);
     i = 0;
+    outputlen = 0;
 	if (a<0)
 	{
 		a *= -1;
@@ -153,13 +155,16 @@ char    *converter_dex_hex(int a)
 	}
 	}
 	outputmeno[i] = '\0';
-  return(outputmeno);
+    outputlen = ft_strlen(outputmeno);
+    ft_strlcat()
+  return(ft_strlen(outputmeno));
 }
 int main() {
   int a = -9999999;
   printf("%s", converter_dex_hex(a));
   return 0;
 }
+
 /*
 1.100.000 /16 = 68750 1.100.000 % 16 = 0
 68750 /16 = 4296
@@ -171,7 +176,25 @@ int main() {
 16/16 = 1
 0
  
-
 10c8e0 
 0e8c01
+*/
+/*
+0 = f 
+1 = e 
+2 = d 
+3 = c 
+4 = b
+5 = a
+6 = 9
+7 = 8
+8 = 7
+9 = 6
+a = 5   97 - 44 = 53                              97 - 44 -53) =53
+b = 4 46 98 - 46  = 52                             98 - 44 - ((98 - 44 -53) * 2)
+c = 3 48                                            99 - 44 ()
+d = 2 50
+e = 1 52
+f = 0 55
+
 */
