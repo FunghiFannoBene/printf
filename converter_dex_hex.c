@@ -4,7 +4,6 @@
 # include <string.h>
 # include <stddef.h>
 
-
 int        ft_strlen(char *s)
 {
     int i;
@@ -32,7 +31,6 @@ char *ft_strrev(char *str)
     }
     return (str);
 }
-
 static  int contatore(int n)
 {
     int digits;
@@ -61,7 +59,7 @@ static  int contatore(int n)
     }
     return (digits);
 }
-char    *converter_dex_hex(int a)
+int  converter_dex_hex(int a)
 {
     int    temp;
     int i;
@@ -160,18 +158,9 @@ int main() {
   printf("%s", converter_dex_hex(a));
   return 0;
 }
-/*
-1.100.000 /16 = 68750 1.100.000 % 16 = 0
-68750 /16 = 4296
-14
-4296 /16 = 268
-8
-268/16 = 16
-12
-16/16 = 1
-0
- 
 
-10c8e0 
-0e8c01
-*/
+int main() {
+  char a[22222] = "ffffffgggjjgjgy";
+  printf("%d", memoryprintP(a));
+  return 0;
+}
