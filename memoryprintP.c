@@ -1,14 +1,10 @@
 int memoryprintP(void* a)
 {
+	unsigned long b;
+	b = (unsigned long)a;
 	int lunghezza;
-	if(ft_isnum(a))
-	{
-		ft_putchar('0');
-		ft_putchar('x');
-		lunghezza = converter_dex_hex(a) + 2;
-	}
-	else if(ft_isstr(a))
-	{
-
-	}
+	ft_putchar('0');
+	ft_putchar('x');
+	lunghezza = converter_dex_hex(a) + 2;
+	return(lunghezza);
 }

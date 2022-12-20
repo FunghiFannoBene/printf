@@ -4,7 +4,15 @@
 # include <string.h>
 # include <stddef.h>
 
-
+void	ft_putchar(char c) 
+{
+	write(1, &c, 1);
+}
+void	ft_putstr(char *str)
+{
+	int i = 0;
+	while(str[i]) ft_putchar(str[i++]);
+}
 int        ft_strlen(char *s)
 {
     int i;
@@ -32,7 +40,6 @@ char *ft_strrev(char *str)
     }
     return (str);
 }
-
 static  int contatore(int n)
 {
     int digits;
@@ -61,7 +68,7 @@ static  int contatore(int n)
     }
     return (digits);
 }
-char    *converter_dex_hex(int a)
+int  converter_dex_hex(int a)
 {
     int    temp;
     int i;
@@ -69,20 +76,22 @@ char    *converter_dex_hex(int a)
 	char	*outputmeno;
 	int		neg;
     int outputlen;
+    int FDaMettere;
 	neg = a;
-	outputmeno = malloc(800);
+	outputmeno = malloc(9);
     i = 0;
     outputlen = 0;
-	if (a<0)
+	if (a < 0)
 	{
 		a *= -1;
 		a -= 1;
 	}
-	
+
     output = (char *)malloc(sizeof(char)* (contatore(a) + 1));
 
     while (a > 15)
-    {outputmeno[i] = '\0';
+    {
+        outputmeno[i] = '\0';
         temp = a % 16; //salvo modulo in temporanea
         a /= 16; // divido a per 16 perche' al momento in cui sara'
         //<16 il mio ciclo while dovra' terminare
@@ -117,6 +126,12 @@ char    *converter_dex_hex(int a)
 	if(neg < 0)
 	{
 	i=0;
+    FDaMettere = 8-ft_strlen(output);
+    while(FDaMettere > 0)
+    {
+        ft_putchar('F');
+        FDaMettere--;
+    }
 	while(output[i] != 0)
 	{
 		if (output[i] == '0')
@@ -151,50 +166,31 @@ char    *converter_dex_hex(int a)
 		outputmeno[i] = '1';
 		else if (output[i] == 'F') 
 		outputmeno[i] = '0';
+        ft_putchar(outputmeno[i]);
 		i++;
 	}
 	}
+    else
+    {
+        ft_putstr(output);
+        return(ft_strlen(output));
+    }
 	outputmeno[i] = '\0';
-    outputlen = ft_strlen(outputmeno);
-    ft_strlcat()
-  return(ft_strlen(outputmeno));
+    return(8);
 }
+int memoryprintP(void *a)
+{
+	unsigned long b;
+	b = (unsigned long)a;
+	int lunghezza;
+	ft_putchar('0');
+	ft_putchar('x');
+	lunghezza = converter_dex_hex(a) + 2;
+	return(lunghezza);
+}
+
 int main() {
-  int a = -9999999;
-  printf("%s", converter_dex_hex(a));
+  char a[22222] = "ffffffgggjjgjgy";
+  printf("%d", memoryprintP(a));
   return 0;
 }
-
-/*
-1.100.000 /16 = 68750 1.100.000 % 16 = 0
-68750 /16 = 4296
-14
-4296 /16 = 268
-8
-268/16 = 16
-12
-16/16 = 1
-0
- 
-10c8e0 
-0e8c01
-*/
-/*
-0 = f 
-1 = e 
-2 = d 
-3 = c 
-4 = b
-5 = a
-6 = 9
-7 = 8
-8 = 7
-9 = 6
-a = 5   97 - 44 = 53                              97 - 44 -53) =53
-b = 4 46 98 - 46  = 52                             98 - 44 - ((98 - 44 -53) * 2)
-c = 3 48                                            99 - 44 ()
-d = 2 50
-e = 1 52
-f = 0 55
-
-*/
