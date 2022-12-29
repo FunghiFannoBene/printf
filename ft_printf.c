@@ -45,9 +45,9 @@ int	checkb(va_list percent, const char type)
 	else if (type == 'u')
 		x = ft_put_u(va_arg(percent, int));
 	else if (type == 'x')
-		x = converter_dex_hex2(va_arg(percent, long int));
+		x = converter_dex_hex2(va_arg(percent, int));
 	else if (type == 'X')
-		x = converter_dex_hex(va_arg(percent, long int));
+		x = converter_dex_hex(va_arg(percent, int));
 	else if (type == '%')
 		x = ft_putpercent('%');
 	return (x);

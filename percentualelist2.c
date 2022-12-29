@@ -44,13 +44,17 @@ int	convmemory(long int a)
 	if (neg < 0 && !LONG_MIN)
 	{
 		x = meno2(output);
+		free(output);
 		if (x < 8)
 			return (8);
-		else
-			return (x);
 	}
 	else
-		return (ft_putstr(output));
+	{
+		ft_putstr(output);
+		x = ft_strlen(output);
+		free(output);
+	}
+	return (x);
 }
 
 char	*creaoutput3(unsigned long int a, char *output)

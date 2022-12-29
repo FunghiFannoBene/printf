@@ -33,14 +33,8 @@ int	converter_dex_hex(long int a)
 {
 	char		*output;
 	long int	neg;
-	long int	x;
 
 	neg = a;
-	if (a == LONG_MIN)
-	{
-		ft_putchar('0');
-		return (1);
-	}
 	if (contatoresedici(a) <= 8)
 		output = (char *)malloc(sizeof(char) * (contatoresedici(a) + 1));
 	else
@@ -49,28 +43,24 @@ int	converter_dex_hex(long int a)
 		a = (a * -1) - 1;
 	output = creaoutput(a, output);
 	if (neg < 0)
-		x = meno(output);
+		meno(output);
 	else
-		return (ft_putstr(output));
-	if (x < 8)
-		return (8);
-	else
-		return (x);
+	{
+		ft_putstr(output);
+		neg = ft_strlen(output);
+		free(output);
+		return (neg);
+	}
+	free(output);
+	return (8);
 }
 
 int	converter_dex_hex2(long int a)
 {
 	char		*output;
 	long int	neg;
-	int			i;
 
-	i = 0;
 	neg = a;
-	if (a == LONG_MIN)
-	{
-		ft_putchar('0');
-		return (1);
-	}
 	if (contatoresedici(a) <= 8)
 		output = (char *)malloc(sizeof(char) * (contatoresedici(a) + 1));
 	else
@@ -81,6 +71,12 @@ int	converter_dex_hex2(long int a)
 	if (neg < 0)
 		meno2(output);
 	else
-		return (ft_putstr(output));
+	{
+		ft_putstr(output);
+		neg = ft_strlen(output);
+		free(output);
+		return (neg);
+	}
+	free(output);
 	return (8);
 }

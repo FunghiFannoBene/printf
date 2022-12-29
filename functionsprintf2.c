@@ -63,6 +63,7 @@ char	*creaoutput(long int a, char *output)
 		output[i] = a + 55;
 	if (output[i] != '\0')
 		i++;
+	output[i] = '\0';
 	output = ft_strrev(output);
 	return (output);
 }
@@ -128,6 +129,8 @@ int	contatoresedici(unsigned long int n)
 	unsigned long int	digits;
 
 	digits = 0;
+	if (n == 0)
+		digits = 1;
 	if (n > 0)
 	{
 		while (n > 0)
@@ -136,7 +139,5 @@ int	contatoresedici(unsigned long int n)
 			digits++;
 		}
 	}
-	else if (n == 0)
-		digits = 1;
 	return (digits);
 }
