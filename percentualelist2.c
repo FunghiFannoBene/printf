@@ -15,16 +15,19 @@
 //%p
 int	memoryprintp(void *a)
 {
-	int	lunghezza;
+	uintptr_t	lunghezza;
 
 	if (a)
 	{
 		ft_putchar('0');
 		ft_putchar('x');
-		lunghezza = convmemory((unsigned long int)a) + 2;
+		lunghezza = convmemory((uintptr_t)a) + 2;
 	}
 	else
-		lunghezza = ft_putstr("(nil)");
+	{
+		ft_putstr("(nil)");
+		lunghezza = 6;
+	}
 	return (lunghezza);
 }
 
@@ -84,7 +87,6 @@ char	*creaoutput3(unsigned long int a, char *output)
 	return (output);
 }
 
-//%s
 int	stringa(char *strvar)
 {
 	if (strvar)
@@ -92,8 +94,6 @@ int	stringa(char *strvar)
 	else
 		return (ft_putstr("(null)"));
 }
-
-//%u
 
 int	ft_put_u(unsigned int n)
 {

@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int			ft_printf(const char *s, ...);
 int			checkb(va_list percent, const char type);
